@@ -20,6 +20,7 @@ class MediamanagerServiceProvider extends ServiceProvider {
 	{
 		$this->registerViews();
         $this->registerRoute();
+        $this->publishAssets();
 	}
 
 	/**
@@ -48,16 +49,24 @@ class MediamanagerServiceProvider extends ServiceProvider {
 	 */
 	public function registerViews() {
 		//Load the views using vault::
-		$this->loadViewsFrom(dirname(__FILE__).'/Views', 'themighty/mediamanager');
+		$this->loadViewsFrom(__DIR__.'/Views', 'themighty/mediamanager');
 
         $this->publishes([
-            __DIR__.'/path/to/views' => base_path('resources/views/vendor/themighty/mediamanager'),
+            __DIR__.'/Views' => base_path('resources/views/vendor/themighty/mediamanager'),
         ]);
 	}
 
 
     public function registerRoute(){
         include __DIR__ . '/Http/route.php';
+    }
+
+
+    public function publishAssets(){
+        $this->publishes([
+            dirname(__FILE__).'/../../public/assets' => base_path('public/vendor/themighty/mediamanager/assets'),
+
+        ], 'assets');
     }
 
 }

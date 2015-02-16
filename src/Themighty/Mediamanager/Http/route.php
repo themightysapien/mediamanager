@@ -1,4 +1,4 @@
 <?php
-Route::get('packagetest', function(){
-    return 'Hello World';
-});
+Route::get('packagetest', [
+    'uses'=>'Themighty\Mediamanager\Http\Controllers\MediaController@getHome'
+]);
