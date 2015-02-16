@@ -1,0 +1,23 @@
+{
+    "name": "themighty/mediamanager",
+    "description": "Laravel Media Management",
+    "authors": [
+        {
+            "name": "themightysapien",
+            "email": "themightysapien@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-4": {
+            "Themighty\\Mediamanager\\": "src/Themighty/Mediamanager"
+        }
+    },
+    "minimum-stability": "dev"
+}
